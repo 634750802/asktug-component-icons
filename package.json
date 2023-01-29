@@ -1,0 +1,8 @@
+{
+  "author": "gaolinjie",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint-config-discourse": "latest",
+    "svgo": "^3.0.2"
+  }
+}

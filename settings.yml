@@ -1,0 +1,4 @@
+whitelisted_fruits:
+  default: apples|oranges
+  type: list
+  description: "This text will be displayed under this setting and it explains what the setting does!"
