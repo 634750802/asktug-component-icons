@@ -26,6 +26,7 @@ const replacements = {
   'mutate-user': 'mute',
   'd-tracking': 'notification',
   'd-watching': 'notification',
+  'share': 'share',
 
   'notification.mentioned': 'at',
   'notification.replied': 'message',
