@@ -1,0 +1,4 @@
+<!--https://github.com/discourse/discourse/blob/56555a023154ce301626cdeed10e52a2d75a9d5d/app/assets/javascripts/discourse/app/templates/components/create-topic-button.hbs#L1-L0-->
+{{#if this.canCreateTopic}}
+  <DButton @class={{this.btnClass}} @id="create-topic" @action={{this.action}} @icon="topic.plus" @disabled={{this.disabled}} @label={{this.label}} />
+{{/if}}

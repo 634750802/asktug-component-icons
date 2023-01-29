@@ -20,6 +20,7 @@ const replacements = {
   'certificate': 'badge',
   'search': 'search',
   'comment': 'message',
+  'topic.plus': 'send',
 
   'notification.mentioned': 'at',
   'notification.replied': 'message',
