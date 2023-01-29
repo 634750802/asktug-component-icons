@@ -1,4 +1,5 @@
-import { apiInitializer } from "discourse/lib/api";
+import {apiInitializer} from "discourse/lib/api";
+import {computed} from "@ember/object";
 
 const replacements = {
   'far-check-square': 'checked',
@@ -21,6 +22,10 @@ const replacements = {
   'search': 'search',
   'comment': 'message',
   'topic.plus': 'send',
+  'user': 'people',
+  'mutate-user': 'mute',
+  'd-tracking': 'notification',
+  'd-watching': 'notification',
 
   'notification.mentioned': 'at',
   'notification.replied': 'message',
@@ -29,7 +34,7 @@ const replacements = {
   'notification.posted': 'notification',
   'notification.edited': 'edit',
   'notification.solved.accepted_notification': 'checked',
-  // "notification.group_mentioned": "users",
+  "notification.group_mentioned": "people",
   // "notification.bookmark_reminder": "discourse-bookmark-clock",
   "notification.liked_2": "heart-fill",
   "notification.liked_many": "heart-fill",
@@ -39,7 +44,7 @@ const replacements = {
   "notification.invited_to_topic": "add-person",
   "notification.invitee_accepted": "add-person",
   // "notification.moved_post": "sign-out-alt",
-  // "notification.linked": "link",
+  "notification.linked": "quote",
   "notification.granted_badge": "badge",
   // "notification.topic_reminder": "far-clock",
   // "notification.watching_first_post": "discourse-bell-one",
@@ -53,8 +58,21 @@ const replacements = {
 }
 
 export default apiInitializer("0.11.1", api => {
-  console.log(settings);
   Object.entries(replacements).forEach(([original, icon]) => {
     api.replaceIcon(original, `asktug-${icon}`)
+  })
+
+  // dirty change changeToMuted icon from component:user-notifications-dropdown
+  const c = Discourse.lookup('component:user-notifications-dropdown')
+  const previousContent = Object.getOwnPropertyDescriptor(c.__proto__, 'content').get;
+  c.__proto__.reopen({
+    content: computed(function () {
+      const items = previousContent.call(this)
+      const mutateItem = items.find(item => item.id === 'changeToMuted')
+      if (mutateItem) {
+        mutateItem.icon = 'mutate-user'
+      }
+      return items
+    })
   })
 });
