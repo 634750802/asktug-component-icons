@@ -27,6 +27,9 @@ for (const fn of files) {
               inlineStyles: {
                 onlyMatchedOnce: false,
               },
+              removeUnknownsAndDefaults: {
+                keepDataAttrs: false
+              }
             }
           }
         }

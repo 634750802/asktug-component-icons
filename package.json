@@ -1,6 +1,10 @@
 {
   "author": "gaolinjie",
   "license": "MIT",
+  "scripts": {
+    "dev": "discourse_theme watch .",
+    "build": "node svgo.js"
+  },
   "devDependencies": {
     "eslint-config-discourse": "latest",
     "svgo": "^3.0.2"
