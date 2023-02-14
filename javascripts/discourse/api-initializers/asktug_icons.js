@@ -2,7 +2,7 @@ import {apiInitializer} from "discourse/lib/api";
 import {computed} from "@ember/object";
 
 const replacements = {
-  'far-check-square': 'checked',
+  'far-check-square': 'unchecked',
   'far-eye-slash': 'eye-off',
   'far-eye': 'eye-on',
   'reply': 'comment',
