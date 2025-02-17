@@ -8,8 +8,8 @@ import { computed } from "@ember/object";
 
 export default apiInitializer("0.11.1", () => {
   // rewrite icons from https://github.com/discourse/discourse-solved/blob/7c50330e046c88f208bfbeaeb9c329465eec047b/assets/javascripts/discourse/initializers/extend-for-solved-button.js#L72
-  const icon = TopicStatusIcons.find(icons => icons[0] === "has_accepted_answer")
-  icon[1] = 'check-square';
+  // const icon = TopicStatusIcons.entries.find(icons => icons[0] === "has_accepted_answer")
+  // icon[1] = 'check-square';
 
   // https://github.com/discourse/discourse-solved/blob/7c50330e046c88f208bfbeaeb9c329465eec047b/assets/javascripts/discourse/initializers/extend-for-solved-button.js#L239
   TopicStatus.reopen({
